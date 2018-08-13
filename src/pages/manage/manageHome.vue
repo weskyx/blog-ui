@@ -1,6 +1,6 @@
 <template>
   <div class="manage-home">
-    manage home
+    manage home go
     <router-view></router-view>
   </div>
 </template>
