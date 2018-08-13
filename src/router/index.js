@@ -22,7 +22,7 @@ export default new Router({
       name: 'manageHome',
       component: manageHome,
       children: [
-        {path: 'article/:articleId', name: 'articleWrite', component: articleWrite}
+        {path: 'article', name: 'articleWrite', component: articleWrite, props: true}
       ]
     },
     {
