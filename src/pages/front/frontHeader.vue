@@ -18,7 +18,9 @@
             <img :src="userInfo.img"/>
           </template>
           <template v-else>
-            <span>请登录</span>
+            <!--<span>请登录</span>
+            <i class="iconfont icon-user"></i>-->
+            <i class="iconfont icon-76"></i>
           </template>
         </div>
       </section>
