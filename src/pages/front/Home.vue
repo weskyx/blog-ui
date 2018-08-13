@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header>
+    <el-header style="height: 52px">
       <front-header></front-header>
     </el-header>
     <el-main></el-main>
@@ -22,6 +22,7 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="stylus">
+.el-header
+  padding 0
 </style>

@@ -7,6 +7,7 @@ import ElementUI from 'element-ui'
 import vueCookies from 'vue-cookies'
 import mavonEditor from 'mavon-editor'
 import 'element-ui/lib/theme-chalk/index.css'
+import '../static/css/main.styl'
 
 Vue.config.productionTip = false
 
