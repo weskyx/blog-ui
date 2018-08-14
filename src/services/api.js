@@ -1,6 +1,5 @@
 /**
- * created by jinxin on 7/24/2018
- * 全局api地址
+ * api地址管理
  */
 export default {
   // post, 登录

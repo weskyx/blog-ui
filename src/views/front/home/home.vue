@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import frontHeader from '@/pages/front/frontHeader.vue'
+import frontHeader from '@/components/front-header/front-header.vue'
 export default {
   name: 'Home',
   data () {

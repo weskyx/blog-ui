@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'article-write',
+  name: 'manageArticle',
   data () {
     return {
       article: ''

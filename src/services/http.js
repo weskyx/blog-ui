@@ -1,3 +1,6 @@
+/**
+ * http服务，支持get, post
+ */
 import axios from 'axios'
 import {Loading, Message} from 'element-ui'
 import router from '@/router'
