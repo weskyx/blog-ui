@@ -25,4 +25,5 @@ export default {
 <style scoped lang="stylus">
 .el-header
   padding 0
+  background #f0f7f8
 </style>

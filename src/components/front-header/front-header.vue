@@ -1,32 +1,29 @@
 <template>
-  <div class="sky-header">
-    <div class="header-inner">
-      <section class="header-left">
-        <a class="header-caption">Sky</a>
-        <el-form :inline="true" :model="headerForm" style="margin-left: 20px">
-          <el-form-item>
-            <el-input></el-input>
-          </el-form-item>
-          <el-form-item>
-            <el-button type="primary">查询</el-button>
-          </el-form-item>
-        </el-form>
-      </section>
-      <section class="header-right">
-        <div class="user-info">
-          <template v-if="userInfo.img">
-            <img :src="userInfo.img"/>
-          </template>
-          <template v-else>
-            <!--<span>请登录</span>
-            <i class="iconfont icon-user"></i>-->
-            <i class="iconfont icon-76"></i>
-          </template>
-        </div>
-      </section>
-    </div>
+  <div class="header-inner">
+    <section class="header-left">
+      <a class="header-caption">Sky</a>
+      <el-form :inline="true" :model="headerForm" style="margin-left: 20px">
+        <el-form-item>
+          <el-input></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary">查询</el-button>
+        </el-form-item>
+      </el-form>
+    </section>
+    <section class="header-right">
+      <div class="user-info">
+        <template v-if="userInfo.img">
+          <img :src="userInfo.img"/>
+        </template>
+        <template v-else>
+          <!--<span>请登录</span>
+          <i class="iconfont icon-user"></i>-->
+          <i class="iconfont icon-76"></i>
+        </template>
+      </div>
+    </section>
   </div>
-
 </template>
 
 <script>
@@ -62,8 +59,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-  .sky-header
-    background #f0f7f8
   .header-inner
     height 52px
     width 1000px
