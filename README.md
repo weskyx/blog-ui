@@ -19,3 +19,6 @@
 - https://github.com/hinesboy/mavonEditor
 - https://www.jianshu.com/p/04376d0c9ff1
 
+#### 字体图标库
+- weskyx-blog : http://www.iconfont.cn/
+
