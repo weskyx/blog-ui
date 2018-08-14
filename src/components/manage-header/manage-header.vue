@@ -6,7 +6,7 @@
       <h4>{{userInfo.name}}</h4>
       <ul>
         <li><i></i>{{userInfo.introduction}}</li>
-        <li><i></i>{{userInfo.sex}}</li>
+        <li><i class="sky icon-man"></i>{{userInfo.sex}}</li>
         <li><i></i>{{userInfo.email}}</li>
       </ul>
     </div>
