@@ -8,6 +8,7 @@ const home = r => require.ensure([], () => r(require('@/views/front/home/home'))
 const article = r => require.ensure([], () => r(require('@/views/front/article/article')), 'article')
 
 const manageHome = r => require.ensure([], () => r(require('@/views/manage/home/manage-home')), 'manageHome')
+const blogs = r => require.ensure([], () => r(require('@/views/manage/blogs/blogs')), 'blogs')
 const manageArticle = r => require.ensure([], () => r(require('@/views/manage/article/manage-article')), 'manageArticle')
 
 const login = r => require.ensure([], () => r(require('@/components/login/login')), 'login')
@@ -23,6 +24,8 @@ export default new Router({
       name: 'manageHome',
       component: manageHome,
       children: [
+        {path: '', redirect: 'blogs'},
+        {path: 'blogs', name: 'blogs', component: blogs},
         {path: 'article', name: 'manageArticle', component: manageArticle, props: true}
       ]
     },

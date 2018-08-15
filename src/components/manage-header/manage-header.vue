@@ -1,7 +1,7 @@
 <template>
 <div class="manage-header-inner">
   <div class="user-logo">
-    <img src="../../../static/img/admin.jpg" style="width: 120px"/>
+    <img src="@/../static/img/weskyx.png" style="width: 120px"/>
   </div>
   <div class="user-info">
     <h1>
@@ -26,7 +26,7 @@ export default {
         img: '',
         name: '管理员',
         introduction: '管理员的自我介绍',
-        sex: 'man',
+        sex: 'secret',
         email: 'admin.qq.com'
       }
     }
@@ -34,11 +34,14 @@ export default {
 }
 </script>
 
-<style scoped lang="stylus">
+<style scoped lang="stylus" rel="stylesheet/stylus">
 .manage-header-inner
   width 1000px
   margin 0 auto
   height 100%
+  background white
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(26,26,26,.1);
   display flex
   justify-content space-between
   .user-logo
@@ -46,10 +49,19 @@ export default {
     display flex
     justify-content center
     align-items center
+    >img
+      width 120px
+      border-radius 4px
   .user-info
     width 830px
     h1
       line-height 30px
+      margin-top 16px
     .detail
       list-style none
+      margin-top 10px
+      li
+        line-height 24px
+      li > i
+        padding-right 10px
 </style>
