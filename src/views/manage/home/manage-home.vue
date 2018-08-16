@@ -7,8 +7,6 @@
       <manage-menu></manage-menu>
       <router-view/>
     </el-main>
-    <el-footer>
-    </el-footer>
   </el-container>
 </template>
 
@@ -28,9 +26,13 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.el-container
+  height 100%
 .el-header
   padding 0
 .el-main
+  display flex
+  flex-direction column
   width 1000px
   margin 12px auto
   padding 0

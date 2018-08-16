@@ -23,8 +23,13 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-.v-right-item
-  max-width 24% !important
-.v-note-wrapper .v-note-op
-  border 0 !important
+.article-editor
+  flex 1
+  display flex
+  .v-note-wrapper.markdown-body
+    flex 1 !important
+  .v-right-item
+    max-width 24% !important
+  .v-note-wrapper .v-note-op
+    border 0 !important
 </style>
