@@ -10,6 +10,8 @@
 
 <script>
 import frontHeader from '@/components/front-header/front-header.vue'
+import $http from '@/services/http.js'
+import $api from '@/services/api.js'
 export default {
   name: 'Home',
   data () {
@@ -18,6 +20,16 @@ export default {
   },
   components: {
     frontHeader
+  },
+  created () {
+    // this.testApi()
+  },
+  methods: {
+    testApi () {
+      $http.get($api.article_test).then(res => {
+        console.log(res)
+      })
+    }
   }
 }
 </script>

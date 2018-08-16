@@ -33,13 +33,13 @@ export default {
  */
 axios.interceptors.request.use(config => {
   loadingInstance = Loading.service({fullscreen: true, background: 'rgba(0, 0, 0, 0.7)'})
-  const token = vueCookies.get('token')
-
-  if (token) {
-    if (router.history.current.name !== 'login') {
-      config.headers.Authorization = token
-    }
-  }
+  // const token = vueCookies.get('token')
+  //
+  // if (token) {
+  //   if (router.history.current.name !== 'login') {
+  //     config.headers.Authorization = token
+  //   }
+  // }
   return config
 }, error => {
   loadingInstance.close()
