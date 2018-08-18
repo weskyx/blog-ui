@@ -2,6 +2,9 @@
 <div class="article-editor">
   <mavon-editor ref=md v-model="article" :boxShadow="false"
                 @imgAdd="addImg" @imgDel="delImg"></mavon-editor>
+  <div class="action">
+    <el-button type="primary" @click="submitBlog()">发布</el-button>
+  </div>
   <div class="test-article">
     <mavon-editor ref=md v-model="article" :toolbarsFlag="false" :editable="false" :subfield="false"></mavon-editor>
   </div>
@@ -35,6 +38,12 @@ export default {
     },
     delImg () {
       // delete
+    },
+    submitBlog () {
+      // 提交博客
+      $http.post('api', null, this.article).then(res => {
+        // 处理回调
+      })
     }
   }
 }
