@@ -5,7 +5,7 @@ import axios from 'axios'
 import {Loading, Message} from 'element-ui'
 import router from '@/router'
 import vm from './vm.js'
-import vueCookies from 'vue-cookies'
+// import vueCookies from 'vue-cookies'
 
 const API_HOST = process.env.API_HOST
 
