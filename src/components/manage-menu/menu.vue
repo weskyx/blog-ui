@@ -17,7 +17,7 @@ export default {
     return {
       items: [
         {
-          index: 'blogs',
+          index: 'articles',
           title: '博客'
         }
       ]
@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     addBlog () {
-      this.$router.push({'name': 'manageArticle'})
+      this.$router.push({'name': 'articleEdit'})
     }
   }
 }

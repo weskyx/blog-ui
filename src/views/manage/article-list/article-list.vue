@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'blogs',
+  name: 'articleList',
   data () {
     return {
       items: [

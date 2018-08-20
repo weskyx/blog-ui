@@ -1,5 +1,5 @@
 <template>
-  <el-container>
+  <!--<el-container>
     <el-header style="height: 150px">
       <manage-header></manage-header>
     </el-header>
@@ -7,7 +7,16 @@
       <manage-menu></manage-menu>
       <router-view/>
     </el-main>
-  </el-container>
+  </el-container>-->
+  <div class="manage-container">
+    <div class="manage-header">
+      <manage-header></manage-header>
+    </div>
+    <div class="manage-body">
+      <manage-menu></manage-menu>
+      <router-view/>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -26,19 +35,7 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.el-container
-  height 100%
-.el-header
-  padding 0
-.el-main
-  display flex
-  flex-direction column
+.manage-body
   width 1000px
   margin 12px auto
-  padding 0
-  background: #fff;
-  overflow: hidden;
-  border-radius: 2px;
-  box-shadow: 0 1px 3px rgba(26,26,26,.1);
-  box-sizing: border-box;
 </style>

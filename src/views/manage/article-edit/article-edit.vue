@@ -5,9 +5,6 @@
   <div class="action">
     <el-button type="primary" @click="submitBlog()">发布</el-button>
   </div>
-  <div class="test-article">
-    <mavon-editor ref=md v-model="article" :toolbarsFlag="false" :editable="false" :subfield="false"></mavon-editor>
-  </div>
 </div>
 </template>
 
@@ -15,7 +12,7 @@
 import $http from '@/services/http'
 // import {mavonEditor} from ...
 export default {
-  name: 'manageArticle',
+  name: 'articleEdit',
   data () {
     return {
       article: ''
@@ -40,10 +37,11 @@ export default {
       // delete
     },
     submitBlog () {
+      console.log(this.article)
       // 提交博客
-      $http.post('api', null, this.article).then(res => {
-        // 处理回调
-      })
+      // $http.post('api', null, this.article).then(res => {
+      //   // 处理回调
+      // })
     }
   }
 }
@@ -51,13 +49,13 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus">
 .article-editor
-  flex 1
-  display flex
-  flex-direction column
   .v-note-wrapper.markdown-body
-    flex 1 !important
+    box-shadow: 0 1px 3px rgba(26,26,26,0.1);
+    min-height 500px
   .v-right-item
     max-width 24% !important
   .v-note-wrapper .v-note-op
     border 0 !important
+  .action
+    margin-top 12px
 </style>
