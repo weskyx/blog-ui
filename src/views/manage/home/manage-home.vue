@@ -1,13 +1,4 @@
 <template>
-  <!--<el-container>
-    <el-header style="height: 150px">
-      <manage-header></manage-header>
-    </el-header>
-    <el-main>
-      <manage-menu></manage-menu>
-      <router-view/>
-    </el-main>
-  </el-container>-->
   <div class="manage-container">
     <div class="manage-header">
       <manage-header></manage-header>
@@ -35,6 +26,8 @@ export default {
 </script>
 
 <style scoped lang="stylus">
+.manage-header
+  height 150px
 .manage-body
   width 1000px
   margin 12px auto

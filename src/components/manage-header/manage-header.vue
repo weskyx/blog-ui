@@ -1,17 +1,18 @@
 <template>
 <div class="manage-header-inner">
   <div class="user-logo">
-    <img src="@/../static/img/weskyx.png" style="width: 120px"/>
+    <img src="@/../static/img/weskyx.png" style="height: 120px"/>
   </div>
   <div class="user-info">
     <h1>
-      <span>{{userInfo.name}}</span>
+      <span :title="userInfo.name">{{userInfo.name}}</span>
       <i></i>
     </h1>
     <ul class="detail">
-      <li><i class="sky icon-introduction"></i>{{userInfo.introduction}}</li>
-      <li><i class="sky" :class="{'icon-man':userInfo.sex === 'man', 'icon-women':userInfo.sex === 'women', 'icon-secret':userInfo.sex === 'secret'}"></i></li>
-      <li><i class="sky icon-email"></i>{{userInfo.email}}</li>
+      <li><i class="sky icon-introduction" title="简介"></i>{{userInfo.introduction}}</li>
+      <li><i class="sky" title="性别"
+             :class="{'icon-man':userInfo.sex === 'man', 'icon-women':userInfo.sex === 'women', 'icon-secret':userInfo.sex === 'secret'}"></i></li>
+      <li><i class="sky icon-email" title="邮箱"></i>{{userInfo.email}}</li>
     </ul>
   </div>
 </div>
@@ -43,9 +44,10 @@ export default {
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(26,26,26,.1);
   display flex
-  justify-content space-between
+  justify-content flex-start
   .user-logo
-    width 150px
+    height 100%
+    margin-left 20px
     display flex
     justify-content center
     align-items center
@@ -53,10 +55,10 @@ export default {
       width 120px
       border-radius 4px
   .user-info
-    width 830px
+    margin-left 24px
     h1
       line-height 30px
-      margin-top 16px
+      margin-top 18px
     .detail
       list-style none
       margin-top 10px
