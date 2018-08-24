@@ -1,21 +1,40 @@
 <template>
 <div class="article-editor">
-  <mavon-editor ref=md v-model="article" :boxShadow="false"
-                @imgAdd="addImg" @imgDel="delImg"></mavon-editor>
-  <div class="action">
-    <el-button type="primary" @click="submitBlog()">发布</el-button>
-  </div>
+  <el-form :model="articleForm" :rules="articleRules" ref="articleForm">
+    <el-form-item label="标题">
+      <el-input v-model="articleForm.title"></el-input>
+    </el-form-item>
+    <el-form-item label="正文">
+      <mavon-editor ref=md v-model="articleForm.content" :boxShadow="false"
+                    @imgAdd="addImg" @imgDel="delImg"></mavon-editor>
+    </el-form-item>
+    <el-form-item label="">
+      <el-button type="primary" @click="submitBlog('articleForm')">发布</el-button>
+    </el-form-item>
+  </el-form>
 </div>
 </template>
 
 <script>
 import $http from '@/services/http'
+import $api from '@/services/api'
 // import {mavonEditor} from ...
 export default {
   name: 'articleEdit',
   data () {
     return {
-      article: ''
+      articleForm: {
+        title: '',
+        author: 'jinxin',
+        images: [],
+        content: ''
+      },
+      articleRules: {
+        title: [
+          {required: true, message: '请输入标题', trigger: 'blur'},
+          {max: 50, message: '最大长度为50个字符', trigger: 'blur'}
+        ]
+      }
     }
   },
   created () {
@@ -36,12 +55,20 @@ export default {
     delImg () {
       // delete
     },
-    submitBlog () {
-      console.log(this.article)
-      // 提交博客
-      // $http.post('api', null, this.article).then(res => {
-      //   // 处理回调
-      // })
+    submitBlog (formName) {
+      this.$refs[formName].validate(valid => {
+        if (valid) {
+          let articlebody = {
+            title: this.articleForm.title,
+            author: this.articleForm.author,
+            image_url: this.articleForm.images.join(';'),
+            content: this.articleForm.content
+          }
+          $http.post($api.add_article, null, articlebody).then(res => {
+            // 发布成功
+          })
+        }
+      })
     }
   }
 }
@@ -52,6 +79,7 @@ export default {
   .v-note-wrapper.markdown-body
     box-shadow: 0 1px 3px rgba(26,26,26,0.1);
     min-height 500px
+    width 100%
   .v-right-item
     max-width 24% !important
   .v-note-wrapper .v-note-op
