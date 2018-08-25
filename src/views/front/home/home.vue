@@ -1,11 +1,5 @@
 <template>
-  <el-container>
-    <el-header style="height: 52px">
-      <front-header></front-header>
-    </el-header>
-    <el-main></el-main>
-    <el-footer></el-footer>
-  </el-container>
+  <div class="blog-home">这里是博客首页主体</div>
 </template>
 
 <script>
