@@ -1,6 +1,6 @@
 <template>
   <el-form class="x-search">
-    <i class="sky icon-man"></i>
+    <i class="sky icon-search"></i>
     <el-input></el-input>
   </el-form>
 </template>
