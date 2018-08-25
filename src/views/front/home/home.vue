@@ -29,7 +29,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.el-header
-  padding 0
-  background #f0f7f8
+.blog-home
+  padding-top 16px
 </style>

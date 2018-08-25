@@ -13,10 +13,20 @@
       <i class="sky icon-write"></i>
       <el-button type="text" class="dark1a1a1">写博客</el-button>
       <template v-if="isLogin">
-        <section class="user-info"></section>
+        <section class="user-info">
+          <el-dropdown @command="handleCommond">
+            <span class="el-dropdown-link">
+              <img src="../../../static/img/weskyx.png" style="width: 20px;border-radius: 25%"/>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item command="manage">我的博客</el-dropdown-item>
+              <el-dropdown-item command="logout">退出</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </section>
       </template>
       <template v-else>
-        <el-button type="text" class="dark1a1a1">登录</el-button>
+        <el-button type="text" class="dark1a1a1" @click="login()">登录</el-button>
         <el-button type="text" class="dark1a1a1">注册</el-button>
       </template>
     </div>
@@ -30,13 +40,35 @@ export default {
   data () {
     return {
       items: [
-        {index: '', name: '博客'}
+        {index: '/', name: '博客'}
       ],
       isLogin: false
     }
   },
   components: {
     xSearch
+  },
+  methods: {
+    login () {
+      this.isLogin = true
+    },
+    logout () {
+      this.isLogin = false
+      this.$router.replace({name: 'home'})
+    },
+    manageMyBlog () {
+      this.$router.push({'name': 'people'})
+    },
+    handleCommond (command) {
+      switch (command) {
+        case 'manage':
+          this.manageMyBlog()
+          break
+        case 'logout':
+          this.logout()
+          break
+      }
+    }
   }
 }
 </script>
@@ -71,4 +103,6 @@ export default {
   align-items center
   .x-search
     margin-right 10px
+  .user-info
+    margin-left 10px
 </style>

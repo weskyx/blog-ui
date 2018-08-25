@@ -1,20 +1,21 @@
 <template>
-  <div class="manage-container">
-    <div class="manage-header">
-      <manage-header></manage-header>
-    </div>
-    <div class="manage-body">
-      <manage-menu></manage-menu>
-      <router-view/>
-    </div>
-  </div>
+  <!--<div class="manage-container">-->
+    <!--<div class="manage-header">-->
+      <!--<manage-header></manage-header>-->
+    <!--</div>-->
+    <!--<div class="manage-body">-->
+      <!--<manage-menu></manage-menu>-->
+      <!--<router-view/>-->
+    <!--</div>-->
+  <!--</div>-->
+  <div>managePage</div>
 </template>
 
 <script>
 import manageHeader from '@/components/manage-header/manage-header.vue'
 import manageMenu from '@/components/manage-menu/menu.vue'
 export default {
-  name: 'manageHome',
+  name: 'people',
   data () {
     return {
     }

@@ -17,7 +17,7 @@ const article = r => require.ensure([], () => r(require('@/views/front/article/a
  * 后台管理路由
  * 个人全部博客展示，添加编辑
  */
-const manageHome = r => require.ensure([], () => r(require('@/views/manage/home/manage-home')), 'manageHome')
+const people = r => require.ensure([], () => r(require('@/views/manage/home/manage-home')), 'people')
 // const articleList = r => require.ensure([], () => r(require('@/views/manage/article-list/article-list')), 'articleList')
 const articleEdit = r => require.ensure([], () => r(require('@/views/manage/article-edit/article-edit')), 'articleEdit')
 
@@ -33,9 +33,9 @@ export default new Router({
       name: 'index',
       component: index,
       children: [
-        {path: '', index: 'home', name: 'home', component: home},
+        {path: '/', index: 'home', name: 'home', component: home},
         {path: '/article/detail/:articleId', name: 'article-detail', component: article},
-        {path: '/people/:personalId', name: 'people', manageHome},
+        {path: '/people', name: 'people', component: people},
         {path: '/article/edit', name: 'article-edit', component: articleEdit}
       ]
     },
