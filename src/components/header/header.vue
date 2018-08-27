@@ -11,7 +11,7 @@
     <div class="right-part">
       <x-search></x-search>
       <i class="sky icon-write"></i>
-      <el-button type="text" class="dark1a1a1">写博客</el-button>
+      <el-button type="text" class="dark1a1a1" @click="writeArticle()">写博客</el-button>
       <template v-if="isLogin">
         <section class="user-info">
           <el-dropdown @command="handleCommond">
@@ -57,7 +57,10 @@ export default {
       this.$router.replace({name: 'home'})
     },
     manageMyBlog () {
-      this.$router.push({'name': 'people'})
+      this.$router.push({'name': 'manage'})
+    },
+    writeArticle () {
+      this.$router.push({'name': 'article-edit'})
     },
     handleCommond (command) {
       switch (command) {

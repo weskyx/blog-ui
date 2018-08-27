@@ -1,16 +1,16 @@
 <template>
 <div class="article-editor">
-  <el-form :model="articleForm" :rules="articleRules" ref="articleForm">
-    <el-form-item label="标题">
+  <el-form :model="articleForm" :rules="articleRules" ref="articleForm" label-width="0">
+    <el-form-item label="">
       <el-input v-model="articleForm.title"></el-input>
     </el-form-item>
-    <el-form-item label="正文">
+    <el-form-item class="markdown-editor">
       <mavon-editor ref=md v-model="articleForm.content" :boxShadow="false"
                     @imgAdd="addImg" @imgDel="delImg"></mavon-editor>
     </el-form-item>
-    <el-form-item label="">
+    <!--<el-form-item label="">
       <el-button type="primary" @click="submitBlog('articleForm')">发布</el-button>
-    </el-form-item>
+    </el-form-item>-->
   </el-form>
 </div>
 </template>
@@ -20,7 +20,7 @@ import $http from '@/services/http'
 import $api from '@/services/api'
 // import {mavonEditor} from ...
 export default {
-  name: 'articleEdit',
+  name: 'article-edit',
   data () {
     return {
       articleForm: {
@@ -76,8 +76,26 @@ export default {
 
 <style lang="stylus" rel="stylesheet/stylus">
 .article-editor
+  position: fixed
+  z-index 2
+  background #fff
+  top 0
+  bottom 0
+  left 0
+  right 0
+  .el-form
+    height 100%
+    display flex
+    flex-direction column
+  .markdown-editor
+    flex 1
+    display flex
+    flex-direction column
+    .el-form-item__content
+      height 100%
   .v-note-wrapper.markdown-body
     box-shadow: 0 1px 3px rgba(26,26,26,0.1);
+    height 100%
     min-height 500px
     width 100%
   .v-right-item

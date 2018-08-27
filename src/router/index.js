@@ -17,9 +17,9 @@ const article = r => require.ensure([], () => r(require('@/views/front/article/a
  * 后台管理路由
  * 个人全部博客展示，添加编辑
  */
-const people = r => require.ensure([], () => r(require('@/views/manage/home/manage-home')), 'people')
+const manage = r => require.ensure([], () => r(require('@/views/manage/home/manage-home')), 'manage')
 // const articleList = r => require.ensure([], () => r(require('@/views/manage/article-list/article-list')), 'articleList')
-const articleEdit = r => require.ensure([], () => r(require('@/views/manage/article-edit/article-edit')), 'articleEdit')
+const articleEdit = r => require.ensure([], () => r(require('@/views/manage/article/article-edit')), 'article-edit')
 
 // 登陆
 const login = r => require.ensure([], () => r(require('@/components/login/login')), 'login')
@@ -35,8 +35,8 @@ export default new Router({
       children: [
         {path: '/', index: 'home', name: 'home', component: home},
         {path: '/article/detail/:articleId', name: 'article-detail', component: article},
-        {path: '/people', name: 'people', component: people},
-        {path: '/article/edit', name: 'article-edit', component: articleEdit}
+        {path: '/manage', name: 'manage', component: manage},
+        {path: '/article/add', name: 'article-edit', component: articleEdit}
       ]
     },
     {
