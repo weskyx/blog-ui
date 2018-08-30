@@ -18,7 +18,7 @@ export default {
   // body为post body数据
   // makeApiUrl将 param拼接在url上
   post (url, param, body) {
-    let totalUrl = makeApiUrl(url, param)
+    let totalUrl = makePostUrl(url, param)
     return axios.post(totalUrl, body)
   },
   get (url, param) {
@@ -91,9 +91,25 @@ function makeApiUrl (url, params) {
   let api = url.split('?')
   let apiUrl = api[0]
 
-  for (var i in params) {
+  for (let i in params) {
     apiUrl = apiUrl.replace('{' + i + '}', encodeURIComponent(params[i]))
   }
+
+  return API_HOST + apiUrl
+}
+
+function makePostUrl (url, params) {
+  let api = url.split('?')
+  let apiUrl = api[0]
+  let urlParams = ''
+
+  for (let i in params) {
+    if (params.hasOwnProperty(i)) {
+      apiUrl = apiUrl.replace('{' + i + '}', encodeURIComponent(params[i]))
+      urlParams += i + '=' + params[i] + '&'
+    }
+  }
+  apiUrl += '?' + urlParams.substring(0, urlParams.length - 1)
 
   return API_HOST + apiUrl
 }
