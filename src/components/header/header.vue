@@ -50,7 +50,8 @@ export default {
   },
   methods: {
     login () {
-      this.isLogin = true
+      // this.isLogin = true
+      this.$router.push({name: 'login'})
     },
     logout () {
       this.isLogin = false
