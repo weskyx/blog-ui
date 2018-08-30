@@ -1,10 +1,12 @@
 <template>
 <div class="article-editor">
   <el-form :model="articleForm" :rules="articleRules" ref="articleForm" label-width="0">
-    <el-form-item label="">
-      <el-input v-model="articleForm.title"></el-input>
+    <el-form-item class="form-title" prop="title">
+      <el-input v-model="articleForm.title" placeholder="输入文章标题"></el-input>
+      <el-button type="primary" class="save-blog" @click="submitBlog('articleForm', false)">存为草稿</el-button>
+      <el-button type="primary" class="publish-blog" @click="submitBlog('articleForm', true)">发表博客</el-button>
     </el-form-item>
-    <el-form-item class="markdown-editor">
+    <el-form-item class="markdown-editor" prop="content">
       <mavon-editor ref=md v-model="articleForm.content" :boxShadow="false"
                     @imgAdd="addImg" @imgDel="delImg"></mavon-editor>
     </el-form-item>
@@ -31,8 +33,11 @@ export default {
       },
       articleRules: {
         title: [
-          {required: true, message: '请输入标题', trigger: 'blur'},
-          {max: 50, message: '最大长度为50个字符', trigger: 'blur'}
+          { required: true, message: '请输入标题', trigger: 'blur' },
+          { max: 50, message: '最大长度为50个字符', trigger: 'blur' }
+        ],
+        content: [
+          { required: true, message: '请输入内容', trigger: 'blur' }
         ]
       }
     }
@@ -55,17 +60,35 @@ export default {
     delImg () {
       // delete
     },
-    submitBlog (formName) {
+    submitBlog (formName, doPublish) {
       this.$refs[formName].validate(valid => {
         if (valid) {
           let articlebody = {
             title: this.articleForm.title,
-            author: this.articleForm.author,
+            author: 'jinxin',
             image_url: this.articleForm.images.join(';'),
-            content: this.articleForm.content
+            content: this.articleForm.content,
+            status: 1
           }
-          $http.post($api.add_article, null, articlebody).then(res => {
-            // 发布成功
+          $http.post($api.add_article, articlebody, articlebody).then(res => {
+            if (!doPublish) {
+              this.$message({
+                message: '保存为草稿成功',
+                type: 'success'
+              })
+            } else {
+              $http.post($api.publish_article, res.id).then(response => {
+                this.$message({
+                  message: '发布成功',
+                  type: 'success'
+                })
+              })
+            }
+          }).catch(error => {
+            this.$message({
+              message: error.error,
+              type: 'danger'
+            })
           })
         }
       })
@@ -87,6 +110,17 @@ export default {
     height 100%
     display flex
     flex-direction column
+    .form-title .el-form-item__content
+      display flex
+      .el-input
+        flex 1
+        margin 16px 8px 16px 16px
+      .el-button
+        margin 16px 8px 16px 8px
+      .el-button.publish-blog
+        margin-right 16px
+    .el-form-item--small.el-form-item
+      margin-bottom 0
   .markdown-editor
     flex 1
     display flex
