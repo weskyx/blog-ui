@@ -2,8 +2,8 @@
 <div class="article-abstract">
   <p class="article-title"><a class="article-title-link">{{title}}</a></p>
   <p class="article-info">
-    <span class="author"><i></i>{{author}}</span>
-    <span class="createdTime"><i></i>{{createdTime}}</span>
+    <span class="author"><i class="sky icon-author"></i>{{author}}</span>
+    <span class="create-time"><i class="sky icon-calendarx"></i>{{createdTime}}</span>
   </p>
   <section class="content">
     <span>{{content}}...</span>
@@ -75,6 +75,22 @@ export default {
     line-height 20px
     margin-top 5px
     color $gray999
+  .article-info .author
+  .article-info .create-time
+    position relative
+    display inline-block
+    margin-right 24px
+    > i
+      margin-right 5px
+  .article-info .author
+    &::after
+      content ''
+      position absolute
+      right -12px
+      top 2px
+      width 1px
+      height 18px
+      background #999
   .content
     font-size 15px
     line-height 1.6
