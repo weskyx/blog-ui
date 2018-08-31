@@ -70,7 +70,7 @@ export default {
             content: this.articleForm.content,
             status: 1
           }
-          $http.post($api.add_article, articlebody, articlebody).then(res => {
+          $http.post($api.add_article, null, articlebody).then(res => {
             if (!doPublish) {
               this.$message({
                 message: '保存为草稿成功',
