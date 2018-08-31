@@ -79,7 +79,7 @@ export default {
 
 <style scoped lang="stylus">
 .blog-header
-  width 1200px
+  width 1000px
   margin 0 auto
   height 40px
   display flex

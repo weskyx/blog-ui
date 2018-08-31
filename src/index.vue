@@ -28,6 +28,6 @@ export default {
   background #fff
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.05)
 .weskyx-main
-  width 1200px
+  width 1000px
   margin 0 auto
 </style>

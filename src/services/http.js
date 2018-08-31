@@ -59,7 +59,7 @@ axios.interceptors.response.use(data => {
   if (data.data !== null && typeof data.data === 'object') {
     // 处理200状态码
     if (data.status && data.status === 200) {
-      return data.data.data
+      return data.data
     } else {
       // 授权失败，调回登录页面
       if (data.status === 401) {

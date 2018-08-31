@@ -1,26 +1,38 @@
 <template>
-  <div class="blog-home">这里是博客首页主体</div>
+  <div class="blog-home">
+    <template v-for="article in articles">
+      <x-article :key="article.id" :articleInfo="article"></x-article>
+    </template>
+  </div>
 </template>
 
 <script>
 import frontHeader from '@/components/front-header/front-header.vue'
+import xArticle from '@/components/article/article-abstract.vue'
 import $http from '@/services/http.js'
 import $api from '@/services/api.js'
 export default {
   name: 'Home',
   data () {
     return {
+      articles: []
     }
   },
   components: {
-    frontHeader
+    frontHeader, xArticle
   },
   created () {
-    // this.testApi()
+    this.queryData()
   },
   methods: {
     testApi () {
       $http.get($api.article_test).then(res => {
+        console.log(res)
+      })
+    },
+    queryData () {
+      $http.get($api.get_all_articles).then(res => {
+        this.articles = res
         console.log(res)
       })
     }
@@ -30,5 +42,5 @@ export default {
 
 <style scoped lang="stylus">
 .blog-home
-  padding-top 16px
+  padding-top 12px
 </style>
