@@ -7,7 +7,7 @@
   </p>
   <section class="content">
     <span>{{content}}...</span>
-    <el-button type="text">阅读全文</el-button>
+    <el-button type="text" @click="readDetail()">阅读全文</el-button>
   </section>
 </div>
 </template>
@@ -21,6 +21,9 @@ export default {
     }
   },
   computed: {
+    articleId: function () {
+      return this.articleInfo.id
+    },
     title: function () {
       return this.articleInfo.title
     },
@@ -32,6 +35,11 @@ export default {
     },
     content: function () {
       return this.articleInfo.content
+    }
+  },
+  methods: {
+    readDetail () {
+      this.$router.push({name: 'article-detail', params: {articleId: this.articleId}})
     }
   }
 }
