@@ -1,31 +1,39 @@
 <template>
   <div class="manage-container">
-    <div class="manage-body">
-      <manage-menu></manage-menu>
-      <router-view/>
-    </div>
+    <template v-for="article in articles">
+      <x-article :key="article.id" :articleInfo="article"></x-article>
+    </template>
   </div>
 </template>
 
 <script>
-import manageHeader from '@/components/manage-header/manage-header.vue'
-import manageMenu from '@/components/manage-menu/menu.vue'
+import xArticle from '@/components/article/article-abstract.vue'
+import $http from '@/services/http.js'
+import $api from '@/services/api.js'
 export default {
   name: 'manage',
   data () {
     return {
+      articles: []
     }
   },
   components: {
-    manageHeader, manageMenu
+    xArticle
+  },
+  created () {
+    this.queryData()
+  },
+  methods: {
+    queryData () {
+      $http.get($api.get_all_articles).then(res => {
+        this.articles = res
+      })
+    }
   }
 }
 </script>
 
 <style scoped lang="stylus">
-.manage-header
-  height 150px
-.manage-body
-  width 1000px
-  margin 12px auto
+.manage-container
+  margin-top 12px
 </style>

@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import frontHeader from '@/components/front-header/front-header.vue'
 import xArticle from '@/components/article/article-abstract.vue'
 import $http from '@/services/http.js'
 import $api from '@/services/api.js'
@@ -19,17 +18,12 @@ export default {
     }
   },
   components: {
-    frontHeader, xArticle
+    xArticle
   },
   created () {
     this.queryData()
   },
   methods: {
-    testApi () {
-      $http.get($api.article_test).then(res => {
-        console.log(res)
-      })
-    },
     queryData () {
       $http.get($api.get_all_articles).then(res => {
         this.articles = res
