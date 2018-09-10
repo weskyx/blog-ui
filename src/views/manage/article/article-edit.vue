@@ -20,6 +20,7 @@
 <script>
 import $http from '@/services/http'
 import $api from '@/services/api'
+const API_HOST = process.env.API_HOST
 // import {mavonEditor} from ...
 export default {
   name: 'article-edit',
@@ -52,9 +53,12 @@ export default {
       // 第一步.将图片上传到服务器.
       let formdata = new FormData()
       formdata.append('image', $file)
-      $http.post('server url', null, formdata).then(url => {
+      $http.post($api.upload_image, null, formdata).then(res => {
         // 将md中的图片名更换为url
-        this.$refs.md.$img2Url(pos, url)
+        console.log(res.data)
+        let imageUrl = API_HOST + res.data
+        this.articleForm.images.push(imageUrl)
+        this.$refs.md.$img2Url(pos, imageUrl)
       })
     },
     delImg () {
