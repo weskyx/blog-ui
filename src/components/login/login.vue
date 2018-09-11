@@ -10,7 +10,7 @@
         <el-input size="medium" v-model="loginForm.account" placeholder="账号"></el-input>
       </el-form-item>
       <el-form-item prop="password">
-        <el-input size="medium" v-model="loginForm.password" placeholder="密码"></el-input>
+        <el-input size="medium" type="password" v-model="loginForm.password" placeholder="密码"></el-input>
       </el-form-item>
       <el-form-item>
         <el-button size="medium" type="primary" style="width: 100%" @click="login('loginForm')">登录</el-button>
@@ -47,8 +47,8 @@ export default {
     login (formName) {
       this.$refs[formName].validate(value => {
         if (value) {
-          $http.post($api, null, this.loginForm).then(res => {
-            // console.log(res)
+          $http.post($api.login, null, this.loginForm).then(res => {
+            console.log(res)
             // cookie 存基本信息
             // this.$router.replace({name: 'home'})
           })

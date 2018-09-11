@@ -26,5 +26,10 @@ export default {
   // get 在线查看图片
   view_image: 'img/{imageId}',
   // post 上传图片
-  upload_image: 'img/uploadImage'
+  upload_image: 'img/uploadImage',
+
+  /**
+   * auth controller
+   */
+  login: 'auth/login'
 }
